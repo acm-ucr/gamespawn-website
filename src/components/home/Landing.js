@@ -8,8 +8,8 @@ import Link from "next/link";
 const Landing = () => {
   return (
     <div className="flex justify-center items-center w-full h-[60vh] lg:h-[80vh] ">
-      <div className="hidden lg:block lg:w-2/12">
-        <Image alt="left" src={landingleft} />
+      <div className="hidden transition-opacity lg:block lg:w-2/12">
+        <Image alt="left" src={landingleft} class="animate-fadeIn" />
       </div>
       <div className="text-center lg:w-6/12">
         <div className="font-monda text-3xl sm:text-4xl font-bold mb-2 sm:mb-3">
@@ -25,7 +25,12 @@ const Landing = () => {
         </Link>
       </div>
       <div className="hidden lg:block lg:w-2/12">
-        <Image className="" alt="right" src={landingright} />
+        <Image
+          className=""
+          alt="right"
+          src={landingright}
+          class="animate-fadeIn"
+        />
       </div>
     </div>
   );
