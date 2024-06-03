@@ -4,6 +4,7 @@ import Filters from "./Filters";
 import Search from "./Search";
 import Cards from "./Cards";
 import Tags from "@/data/Tags";
+import Pagination from "./Pagination";
 
 const schoolyears = [
   2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024,
@@ -36,6 +37,8 @@ const DisplayProjs = ({ projData }) => {
         tagFilters={tagFilters}
         projData={projData}
       />
+
+      <Pagination projData={projData} />
     </div>
   );
 };

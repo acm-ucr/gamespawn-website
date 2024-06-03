@@ -5,16 +5,19 @@ import Card from "./Card";
 
 const Cards = ({ yearFilters, tagFilters, projData }) => {
   const searchParams = useSearchParams();
-  // const page = parseInt(searchParams.get("page") ?? 0);
+  const page = parseInt(searchParams.get("page") ?? 0);
   const search = searchParams.get("search") ?? "";
   const searchString = search.toLowerCase();
 
-  const filteredCards = projData.filter(
-    ({ title, schoolyear, tags }) =>
-      title.toLowerCase().includes(searchString) &&
-      (yearFilters.length === 0 || yearFilters.includes(schoolyear)) &&
-      (tagFilters.length === 0 || tagFilters.some((tag) => tags.includes(tag)))
-  );
+  const filteredCards = projData
+    .filter(
+      ({ title, schoolyear, tags }) =>
+        title.toLowerCase().includes(searchString) &&
+        (yearFilters.length === 0 || yearFilters.includes(schoolyear)) &&
+        (tagFilters.length === 0 ||
+          tagFilters.some((tag) => tags.includes(tag)))
+    )
+    .slice(10 * page, 10 * page + 10);
 
   return (
     <div className="flex justify-center items-center">
