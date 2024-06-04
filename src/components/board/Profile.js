@@ -30,7 +30,7 @@ const Profile = ({ name, email, title, image, year, major }) => {
         <div className="font-monda text-xl mb-1">{title}</div>
 
         <div className="font-monda mb-4">
-          {year} - {major}
+          {year ? `${year} - ${major}` : `Alumni - ${major}`}
         </div>
       </div>
     </div>
